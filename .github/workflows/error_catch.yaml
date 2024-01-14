@@ -11,7 +11,9 @@ jobs:
         with:
           node-version: '20.x'
       - name: install dependencies
-        run: npm i
+        run: |
+          npm i
+          npm init @eslint/config
       - name: run tests
         run: npm test
   notify_owner:
