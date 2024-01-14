@@ -1,24 +1,12 @@
 name: gha error handling
 on: [issues, workflow_dispatch]
 jobs:
-  validate_code:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v4
-      - name: install dependencies
-        run: |
-          npm ci
-      - name: run tests
-        run: |
-          npm run lint
-          npm run test
-          npm run build
   notify_owner:
-    needs: validate_code
     runs-on: ubuntu-latest
     steps:
     - name: notify author
-      run: echo "[erorrs have occurred][smtp would be here]"
+      run: |
+        echo "[erorrs have occurred][smtp data here]"
+        echo "${{ toJSON(github.event) }}"
       # uses: dawidd6/action-send-mail@v3.10.0
 
