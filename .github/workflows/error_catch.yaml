@@ -15,6 +15,7 @@ jobs:
       - name: run tests
         run: npm test
   notify_owner:
+    needs: validate_code
     runs-on: ubuntu-latest
     steps:
     - name: notify author
