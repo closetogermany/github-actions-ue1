@@ -1,0 +1,23 @@
+name: gha error handling
+on: [issues, workflow_dispatch]
+jobs:
+  validate_code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: install node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - name: install dependencies
+        run: npm i
+      - name: run tests
+        run: npm test
+  notify_owner:
+    runs-on: ubuntu-latest
+    steps:
+    - name: notify author
+      run: echo "[erorrs have occurred][smtp would be here]"
+      # uses: dawidd6/action-send-mail@v3.10.0
+

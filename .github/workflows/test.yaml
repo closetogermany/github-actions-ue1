@@ -1,0 +1,10 @@
+name: gha error handling
+on: [issues, workflow_dispatch]
+jobs:
+  notify_owner:
+    runs-on: ubuntu-latest
+    steps:
+      name: notify author
+      # uses: dawidd6/action-send-mail@v3.10.0
+      shell: ∑
+
