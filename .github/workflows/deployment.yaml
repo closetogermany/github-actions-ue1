@@ -13,7 +13,7 @@ jobs:
     - name: test code
       run: npm run test
     - name: build app
-      run: npm build # error handling test
+      run: npm run build # error handling test - no error
   deploy_app:
     needs: run_tests
     runs-on: ubuntu-latest
